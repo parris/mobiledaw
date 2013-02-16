@@ -1,8 +1,6 @@
 // require Mobile functionality
 var midiManager = require('../app/miditodaw');
 
-
-
 /*
  * GET home page.
  */
