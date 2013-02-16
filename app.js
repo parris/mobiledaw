@@ -66,6 +66,12 @@ io.sockets.on('connection', function (socket) {
         }
     });
 
+    socket.on('note', function(note) {
+        socket.get('instrument', function(err, instrument) {
+           console.log(instrument + ': midi ' + note.value + ', ' + note.status);
+        });
+    });
+
     socket.on('disconnect', function () {
         socket.get('instrument', function(err, instrument) {
             console.log('put instrument away: ' + instrument);
