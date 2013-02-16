@@ -9,8 +9,20 @@ var midiManager = require('../app/miditodaw');
 
 exports.index = function(req, res){
 
-	midiManager.noteOn([147,36,50]);
-	midiManager.noteOff([131,36,50]);
+	midiManager.guitar(1, '');
+	midiManager.guitar(0, '');
+
+	midiManager.keys(1, '');
+	midiManager.keys(0, '');
+
+	midiManager.drums(1, '');
+	midiManager.drums(0, '');
+
+	midiManager.sax(1, '');
+	midiManager.sax(0, '');
+
+	midiManager.bass(1, '');
+	midiManager.bass(0, '');
 
     res.render('index', { title: 'Let\'s Jam' });
 };
