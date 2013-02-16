@@ -13,8 +13,23 @@
             instrument = data.instrument;
             getInstrument(instrument).done(function(response){
                 $('#layout').html(response);
+
+                $('.play-note').on('mousedown', function() {
+                    socket.emit('note', {
+                        value: 1,
+                        status: "down"
+                    });
+                });
+
+                $('.play-note').on('mouseup', function() {
+                    socket.emit('note', {
+                        value: 1,
+                        status: "up"
+                    });
+                });
             });
         });
+
 
     });
 
