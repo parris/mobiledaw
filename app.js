@@ -3,12 +3,20 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http')
-  , path = require('path');
-
-var app = express();
+var express = require('express'),
+    routes = require('./routes'),
+    http = require('http'),
+    path = require('path'),
+    _ = require('underscore'),
+    fs = require('fs'),
+    app = express(),
+    instruments = ['drums', 'bass', 'keys', 'sax', 'guitar'],
+    connections = 0,
+    maxConnections = 5,
+    bpm = 140,
+    clockSync,
+    io,
+    server;
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -29,6 +37,37 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/instruments/:file', routes.html);
 
-http.createServer(app).listen(app.get('port'), function(){
+server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
+});
+
+io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function (socket) {
+    var instrument;
+    if (connections >= maxConnections) {
+        socket.emit('roomFull');
+        return;
+    }
+
+    instrument = instruments.pop();
+    socket.set('instrument', instrument, function() {
+        console.log('assigned instrument');
+        socket.emit('assign', { instrument: instrument });
+        connections++;
+
+        if (connections === 5) {
+            clockSync = Date.now();
+            socket.emit('ready', {
+                clock: clockSync,
+                bpm: bpm
+            });
+        }
+    });
+
+    socket.on('disconnect', function () {
+        console.log('put instrument away');
+        instrument.push(socket.get('instrument'));
+        connections--;
+    });
 });
