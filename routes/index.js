@@ -9,6 +9,7 @@ var midiManager = require('../app/miditodaw');
 
 exports.index = function(req, res){
 
-	midiManager.sendNote();
+	midiManager.connect();
+
     res.render('index', { title: 'Let\'s Jam' });
 };
