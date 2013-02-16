@@ -1,5 +1,6 @@
-// require MIDI
 // require Mobile functionality
+var midiManager = require('../app/miditodaw');
+
 
 
 /*
@@ -7,5 +8,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+
+	midiManager.sendNote();
+
 };
