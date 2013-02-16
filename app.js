@@ -52,13 +52,14 @@ io.sockets.on('connection', function (socket) {
 
     instrument = instruments.pop();
     socket.set('instrument', instrument, function() {
-        console.log('assigned instrument');
+        console.log('assigned instrument: ' + instrument);
         socket.emit('assign', { instrument: instrument });
         connections++;
 
         if (connections === 5) {
             clockSync = Date.now();
-            socket.emit('ready', {
+            // tell all sockets we are ready
+            io.sockets.emit('ready', {
                 clock: clockSync,
                 bpm: bpm
             });
@@ -66,8 +67,10 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('disconnect', function () {
-        console.log('put instrument away');
-        instrument.push(socket.get('instrument'));
-        connections--;
+        socket.get('instrument', function(err, instrument) {
+            console.log('put instrument away: ' + instrument);
+            instruments.push(instrument);
+            connections--;
+        });
     });
 });
