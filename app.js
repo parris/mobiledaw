@@ -67,8 +67,10 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('disconnect', function () {
-        console.log('put instrument away: ' + socket.get('instrument'));
-        instrument.push(socket.get('instrument'));
-        connections--;
+        socket.get('instrument', function(instrument) {
+            console.log('put instrument away: ' + instrument);
+            instrument.push(socket.get('instrument'));
+            connections--;
+        });
     });
 });
