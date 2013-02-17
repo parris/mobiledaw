@@ -38,23 +38,23 @@ midiManager.guitar = function (status, value) {
 		break;
 	case 2:
 	  	if(status === 0){
-			self.noteOff([131,36,100]);
+			self.noteOff([131,37,100]);
 		} else {
-			self.noteOn([147,36,100]);
+			self.noteOn([147,37,100]);
 		}
 	  	break;
 	case 3:
 	  	if(status === 0){
-			self.noteOff([131,36,100]);
+			self.noteOff([131,38,100]);
 		} else {
-			self.noteOn([147,36,100]);
+			self.noteOn([147,38,100]);
 		}
 	  	break;
 	default:
 	  	if(status === 0){
-			self.noteOff([131,36,100]);
+			self.noteOff([131,39,100]);
 		} else {
-			self.noteOn([147,36,100]);
+			self.noteOn([147,39,100]);
 		}
 	  	break;
 	}
