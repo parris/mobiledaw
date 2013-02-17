@@ -70,8 +70,13 @@ io.sockets.on('connection', function (socket) {
     socket.on('note', function(note) {
         socket.get('instrument', function(err, instrument) {
 
-          midiManager[instrument](note.status, note.value);
-          console.log(instrument + ': midi ' + note.value + ', ' + note.status);
+          if(note.status == 1){
+            midiManager.noteOn(instrument_notes[instrument][note.value]);
+          }
+          else {
+            midiManager.noteOff(instrument_notes[instrument][note.value]);
+          }
+          console.log(instrument + ': midi ' + ' status:' + note.status + ', ' + ' value:' +note.value);
         });
     });
 
@@ -83,3 +88,34 @@ io.sockets.on('connection', function (socket) {
         });
     });
 });
+
+var instrument_notes = {
+
+  'guitar': {
+    1: 43,
+    2: 44,
+    3: 45
+  },
+  'keys': {
+    1: 46,
+    2: 47,
+    3: 48
+  },
+  'drums': {
+    1: 36,
+    2: 37,
+    3: 38,
+    4: 39
+  },
+  'sax': {
+    1: 49,
+    2: 50,
+    3: 51
+  },
+  'bass': {
+    1: 40,
+    2: 41,
+    3: 42
+  }
+
+}
