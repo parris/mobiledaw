@@ -77,6 +77,14 @@
         });
 
         setMetronomeWidth($(window).width());
+
+        if (navigator.userAgent.match(/iPad/i) !== null) {
+            $('#viewport').attr('viewport', 'width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no');
+        }
+
+        setTimeout(function() {
+            window.scrollTo(0,1);
+        }, 4);
     });
 
 }());
