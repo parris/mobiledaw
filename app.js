@@ -10,6 +10,7 @@ var express = require('express'),
     _ = require('underscore'),
     fs = require('fs'),
     app = express(),
+    midiManager = require('./app/miditodaw'),
     instruments = ['drums', 'bass', 'keys', 'sax', 'guitar'],
     connections = 0,
     maxConnections = 5,
@@ -68,6 +69,23 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('note', function(note) {
         socket.get('instrument', function(err, instrument) {
+
+          midiManager.guitar(1, '');
+          midiManager.guitar(0, '');
+
+          // midiManager.keys(1, '');
+          // midiManager.keys(0, '');
+
+          // midiManager.drums(1, '');
+          // midiManager.drums(0, '');
+
+          // midiManager.sax(1, '');
+          // midiManager.sax(0, '');
+
+          // midiManager.bass(1, '');
+          // midiManager.bass(0, '');
+
+
            console.log(instrument + ': midi ' + note.value + ', ' + note.status);
         });
     });
