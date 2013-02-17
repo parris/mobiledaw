@@ -27,50 +27,187 @@ midiManager.noteOff = function(note){
 midiManager.guitar = function (status, value) {
 	var self = this;
 
-	if(status === 0){
-		self.noteOff([131,36,100]);
-	} else {
-		self.noteOn([147,36,100]);
+	switch(value)
+	{
+	case 1:
+		if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+		break;
+	case 2:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	case 3:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	default:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
 	}
 };
 
 midiManager.keys = function(value, status) {
 	var self = this;
 
-	if(status === 0){
-		self.noteOff([131,37,50]);
-	} else {
-		self.noteOn([147,37,50]);
+	switch(value)
+	{
+	case 1:
+		if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+		break;
+	case 2:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	case 3:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	default:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
 	}
 };
 
 midiManager.drums = function (value, status) {
 	var self = this;
 
-	if(status === 0){
-		self.noteOff([131,38,50]);
-	} else {
-		self.noteOn([147,38,50]);
+	switch(value)
+	{
+	case 1:
+		if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+		break;
+	case 2:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	case 3:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	case 4:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	default:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
 	}
 };
 
 midiManager.sax = function (value, status) {
 	var self = this;
 
-	if(status === 0){
-		self.noteOff([131,39,50]);
-	} else {
-		self.noteOn([147,39,50]);
+	switch(value)
+	{
+	case 1:
+		if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+		break;
+	case 2:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	case 3:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	default:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
 	}
 };
 
 midiManager.bass = function (value, status) {
 	var self = this;
 
-	if(status === 0){
-		self.noteOff([131,40,50]);
-	} else {
-		self.noteOn([147,40,50]);
+	switch(value)
+	{
+	case 1:
+		if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+		break;
+	case 2:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	case 3:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
+	default:
+	  	if(status === 0){
+			self.noteOff([131,36,100]);
+		} else {
+			self.noteOn([147,36,100]);
+		}
+	  	break;
 	}
 };
 
