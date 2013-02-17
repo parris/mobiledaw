@@ -71,7 +71,7 @@ io.sockets.on('connection', function (socket) {
         socket.get('instrument', function(err, instrument) {
 
           midiManager.guitar(1, '');
-          setTimeout(midiManager.guitar(0, ''), 1000);
+          setTimeout(midiManager.guitar(0, ''), 5000);
 
           // midiManager.keys(1, '');
           // midiManager.keys(0, '');
