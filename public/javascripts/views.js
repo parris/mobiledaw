@@ -14,16 +14,18 @@
             getInstrument(instrument).done(function(response){
                 $('#layout').html(response);
 
-                $('.play-note').on('mousedown', function() {
+                $('.play-note').on('mousedown', function(e) {
+                    var $button = $(e.target);
                     socket.emit('note', {
-                        value: 1,
+                        value: parseInt($button.attr('data-note'), 10),
                         status: 1
                     });
                 });
 
-                $('.play-note').on('mouseup', function() {
+                $('.play-note').on('mouseup', function(e) {
+                    var $button = $(e.target);
                     socket.emit('note', {
-                        value: 1,
+                        value: $button.attr('data-note'),
                         status: 0
                     });
                 });
