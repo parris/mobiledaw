@@ -28,9 +28,9 @@ midiManager.guitar = function (status, value) {
 	var self = this;
 
 	if(status === 0){
-		self.noteOff([131,36,50]);
+		self.noteOff([131,36,100]);
 	} else {
-		self.noteOn([147,36,50]);
+		self.noteOn([147,36,100]);
 	}
 };
 
