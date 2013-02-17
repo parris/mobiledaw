@@ -17,14 +17,14 @@
                 $('.play-note').on('mousedown', function() {
                     socket.emit('note', {
                         value: 1,
-                        status: "down"
+                        status: 1
                     });
                 });
 
                 $('.play-note').on('mouseup', function() {
                     socket.emit('note', {
                         value: 1,
-                        status: "up"
+                        status: 0
                     });
                 });
             });
