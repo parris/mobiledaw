@@ -5,7 +5,7 @@
     }
 
     $(function() {
-        var socket = io.connect('http://localhost:3000'),
+        var socket = io.connect('http://10.0.3.36:3000'),
             instrument,
             worldClock,
             bpm,
@@ -26,7 +26,7 @@
             getInstrument(instrument).done(function(response){
                 $('#layout').html(response);
 
-                $('.play-note').on('mousedown', function(e) {
+                $('.play-note').on('touchstart', function(e) {
                     var $button = $(e.target);
                     socket.emit('note', {
                         value: parseInt($button.attr('data-note'), 10),
@@ -34,7 +34,7 @@
                     });
                 });
 
-                $('.play-note').on('mouseup', function(e) {
+                $('.play-note').on('touchend', function(e) {
                     var $button = $(e.target);
                     socket.emit('note', {
                         value: $button.attr('data-note'),

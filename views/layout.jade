@@ -2,9 +2,11 @@ doctype 5
 html
   head
     //title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='javascripts/jquery-1.9.1-min.js')
-    script(src='/socket.io/socket.io.js')
-    script(src='javascripts/views.js')
+    meta(id="viewport", name="viewport", content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    script(src="javascripts/jquery-1.9.1-min.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="javascripts/views.js")
+    link(rel="icon", type="image/png", href="img/favicon.ico")
   body#layout
     block content

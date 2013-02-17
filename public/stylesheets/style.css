@@ -92,5 +92,5 @@ a {
 .play-note {
     height: 200px;
     width: 100%;
-
+    -webkit-user-select: none;
 }
